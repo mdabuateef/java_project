@@ -25,11 +25,10 @@ pipeline {
          stage('Schedule Stop') {
             steps {
                 script {
-                    def time = getCurrentTime() + 5 * 60 * 1000 // 5 minutes in milliseconds
                     echo "Scheduled to stop the container in 5 minutes."
 
                     // Use Jenkins' `timeout` step to initiate a timed block
-                    timeout(time: time, unit: 'MILLISECONDS') {
+                    timeout(time: 5, unit:'MINUTES' ) {
                         sh 'sudo docker stop jenkcont'
                         sh 'sudo docker rm jenkcont'
                     }
