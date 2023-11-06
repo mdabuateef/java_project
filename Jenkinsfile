@@ -36,8 +36,8 @@ pipeline {
                 }
             }
         }
-        stage('deploy')
-            steps {
-                sh 'docker login -u 
+        //stage('deploy')
+           // steps {
+             //   sh 'docker login -u 
     }
 }
