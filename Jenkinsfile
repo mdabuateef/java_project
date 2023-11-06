@@ -37,7 +37,7 @@ pipeline {
         }*/
            stage('deploy') {
             steps {
-                sh 'docker login -u mdabudoc -p dckr_pat_GLq2ckaGnmfjym7NhvjCTikgsv4'
+                sh 'docker login --username mdabudoc --password-stdin < ~/my_password'
                 sh 'docker push mdabudoc/open:latest'
             }
         }
