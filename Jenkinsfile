@@ -38,8 +38,8 @@ pipeline {
            stage('deploy') {
             steps {
                 sh 'sudo docker login --username mdabudoc --password-stdin < /var/lib/jenkins/my_password'
-                sh 'sudo docker tag jenkindock new_jenkinsdock:v1'
-                sh 'sudo docker push mdabudoc/open:new_jenkinsdock-v1'
+                sh 'sudo docker tag jenkindock:latest mdabudoc/open:new_jenkindock-v1'
+                sh 'sudo docker push mdabudoc/open:new_jenkindock-v1'
             }
         }
     }
