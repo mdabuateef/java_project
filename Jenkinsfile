@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
              steps {
-                withSonarQubeEnv('SonarQube') {
+                 withSonarQubeEnv('SonarQube') {
                     // Optionally use a Maven environment you've configured already
                     withMaven {
                         sh "mvn clean verify"
@@ -22,5 +22,22 @@ pipeline {
                 }
             }
         }
+         stage('Schedule Stop') {
+            steps {
+                script {
+                    def time = getCurrentTime() + 5 * 60 * 1000 // 5 minutes in milliseconds
+                    echo "Scheduled to stop the container in 5 minutes."
+
+                    // Use Jenkins' `timeout` step to initiate a timed block
+                    timeout(time: time, unit: 'MILLISECONDS') {
+                        sh 'sudo docker stop jenkcont'
+                        sh 'sudo docker rm jenkcont'
+                    }
+                }
+            }
+        }
+        stage('deploy')
+            steps {
+                sh 'docker login -u 
     }
 }
