@@ -35,10 +35,11 @@ pipeline {
                 }
             }
         }*/
-           stage('deploy')
+           stage('deploy') {
             steps {
                 sh 'docker login -u mdabudoc -p dckr_pat_GLq2ckaGnmfjym7NhvjCTikgsv4'
-                sh 'docker push mdabudoc/open:latest' 
-
+                sh 'docker push mdabudoc/open:latest'
+            }
+        }
     }
-}
+ }
