@@ -37,7 +37,7 @@ pipeline {
         }*/
            stage('deploy') {
             steps {
-                sh 'docker login --username mdabudoc --password-stdin < ~/my_password'
+                sh 'sudo docker login --username mdabudoc --password-stdin < /var/lib/jenkins/my_password'
                 sh 'docker push mdabudoc/open:latest'
             }
         }
