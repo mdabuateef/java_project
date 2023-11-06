@@ -39,7 +39,7 @@ pipeline {
             steps {
                 sh 'sudo docker login --username mdabudoc --password-stdin < /var/lib/jenkins/my_password'
                 sh 'sudo docker tag jenkindock new_jenkinsdock:v1'
-                sh 'sudo docker push new_jenkindock:v1'
+                sh 'sudo docker push new_jenkinsdock:v1'
             }
         }
     }
