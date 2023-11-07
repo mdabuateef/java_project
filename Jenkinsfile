@@ -17,7 +17,7 @@ pipeline {
                             echo "COPY *.war /usr/local/tomcat/webapps/" >> /var/lib/jenkins/workspace/jenkins_main/jenkins_dock/Dockerfile
                             '''
                         sh "sudo docker build -t jenkindock /var/lib/jenkins/workspace/jenkins_main/jenkins_dock/"
-                        //sh "sudo docker run -d -p 8081:8080 --name jenkcont jenkindock"
+                        sh "sudo docker run -d -p 8081:8080 --name jenkcont jenkindock"
                     }
                 }
             }
